@@ -19,10 +19,15 @@
     Description: {{ product.description }}
   </p>
 
-<!-- An example of event binding ( ) -->
+  <!-- An example of event binding ( ) -->
   <button (click)="share()">
     Share
   </button>
+
+  <!-- An example of embedding a component within another component. The
+  app-product-alerts conponent is now a shild of the app-product-list component. We are also using property binding to pass the current product as input to the child comnponent. -->
+  <app-product-alerts [product]="product" (notify)="onNotify()">
+  </app-product-alerts>
 </div>
 
 <!-- Copyright Google LLC. All Rights Reserved. Use of this source code is governed by an MIT-style license that
