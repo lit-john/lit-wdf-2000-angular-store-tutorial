@@ -1,13 +1,15 @@
 <h2>Products</h2>
 
-<!-- *ngFor is a structural directive -->
-<div *ngFor="let product of products">
+<!-- *ngFor is a structural directive 
+As the for loop iterates over the array it assigns the variable product to the item it is currently iterating over. It also (optional) assigns the variable productId to be the current index.-->
+<div *ngFor="let product of products; index as productId">
   <h3>
     <!-- Below is an example of property binding, where we are binding the
     title property of the a element to product.name
     [ ]
+    I'm also using the routerLink directive and passing it an array of path segments, followed by the params for each segment.
     -->
-    <a [title]="product.name + ' details'">
+    <a [title]="product.name + ' details'" [routerLink]="['/products', productId]">
       <!-- Let's use the interpolation syntax to render a property's 
       value -->
       {{ product.name }}
