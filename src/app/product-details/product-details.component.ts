@@ -23,8 +23,15 @@ export class ProductDetailsComponent implements OnInit {
     private route: ActivatedRoute,
   ) { }
 
+  /*
+  Angular calls ngOnInit() shortly after creating a component.
+  */
   ngOnInit() {
+    /*
+     Subscribe to the route's paramMap, when a new parameter is added to the map then the supplied 'arrow' function is called and the paramMap is passed to it.
+     */
     this.route.paramMap.subscribe(params => {
+      // the + operator in JS converts a string to a number
       this.product = products[+params.get('productId')];
     });
   }
