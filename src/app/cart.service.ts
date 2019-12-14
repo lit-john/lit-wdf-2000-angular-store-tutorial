@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 
+// Import HttpClient from the @angular/common/http package.
+import { HttpClient } from '@angular/common/http';
+
 /*
 Decorator that marks a class as available to be provided and injected as a dependency.
 */
@@ -12,7 +15,8 @@ Decorator that marks a class as available to be provided and injected as a depen
 export class CartService {
   public items:Array<any> = [];
 
-  constructor() { }
+  // Inject the HttpClient module
+  constructor( private http: HttpClient ) { }
 
   public addToCart(product:any):void {
     this.items.push(product);
@@ -25,6 +29,10 @@ export class CartService {
   public clearCart():Array<any> {
     this.items = [];
     return this.items;
+  }
+
+  public getShippingPrices() {
+    return this.http.get('/assets/shipping.json');
   }
 
 }

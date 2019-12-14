@@ -1,0 +1,9 @@
+<h3>Shipping Prices</h3>
+
+<!--
+  async raps a test function in an asynchronous test zone. The test will automatically complete when all asynchronous calls within this zone are done.
+-->
+<div class="shipping-item" *ngFor="let shipping of shippingCosts | async">
+  <span>{{ shipping.type }}</span>
+  <span>{{ shipping.price | currency }}</span>
+</div>
