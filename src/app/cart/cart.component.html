@@ -12,6 +12,7 @@
 <!--
   Bind the formGroup property to the checkoutForm component instance variable and bind the Angular ngSubmit event to 
   the componsnts onSubmit function and pass it the value of the checkoutForm FormGroup
+  -->
 <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
   <div>
     <label for="name">
